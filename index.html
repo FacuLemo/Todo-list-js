@@ -1,46 +1,79 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do-List</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>To Do List</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
 <body>
-    <nav>
-        <p>To Do List</p>
-    </nav>
-    <main>
-        <button onclick="agregarTarea()" > Agregar Tarea</button>
-        <h1>Por hacer</h1>
-        <table id="tareas_activas">
-            <tr>
-                <th>Nombre de la tarea </th>
-                <th>borrar</th>
-            </tr>
-        </table>
-        <h1>Terminadas</h1>
-        <table>
-            <tr>
-                <th>Nombre de la tarea </th>
-                <th>borrar</th>
-            </tr>
-            <tr>
-                <td>nombre</td>
-                <td>
-                    <button>
-                        borrar
-                    </button>
-                </td>
-            </tr>
-        </table>
-    </main>
-    <footer>
+    <header>
+        <ul class="nav bg-primary blue justify-content-center  ">
+            <li class="nav-item h2 text-light">
+                To-Do List
+            </li>
+        </ul>
+    </header>
 
-    </footer>
+    <main class="container">
+        <!-- nueva tarea -->
+        <div class="mx-auto my-5 " style="width: 200px;">
+            <a class="btn btn-success" role="button" onclick="agregarTarea()">agregar nueva tarea...</a>
+        </div>
+        <div class="table-responsive">
+            <!-- Tareas -->
+            <p>Tareas por hacer</p>
+            <table class="table table-primary" id="tabla_incompleto">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                    </tr>
+                    <th scope="col">Borrar</th>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td scope="row">R1C1</td>
+                        <td>R1C2</td>
+                    </tr>
+                    <tr class="">
+                        <td scope="row">Item</td>
+                        <td>Item</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Tareas Terminadas</p>
+            <table class="table table-primary" id="tabla_completado">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                    </tr>
+                    <th scope="col">Borrar</th>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td scope="row">R1C1</td>
+                        <td>R1C2</td>
+                    </tr>
+                    <tr class="">
+                        <td scope="row">Item</td>
+                        <td>Item</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
     <script src="main.js"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

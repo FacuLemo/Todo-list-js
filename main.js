@@ -6,35 +6,44 @@
 
 //tareas debería ser [{nombre:x,completada:true},{},{}]
 let tareas = [
-    {nombre:"tarea1",completada:true},
-    {nombre:"tarea2",completada:true},
-    {nombre:"tarea3",completada:true},
-    {nombre:"tarea4",completada:true}]
+    {nombre:"tarea1",completada:false},
+    {nombre:"tarea2",completada:false},
+    {nombre:"tarea3",completada:false},
+    {nombre:"4t",completada:false}]
 
-const marcarCompletadas = () => {
-
+const marcarCompletadas = (nombre) => {
+    let tarea = tareas.find(t => t.nombre == nombre)
+    tarea.completada = true
+    mostrarElementos()
 }
 const agregarTarea = () => {
     let nombre = prompt('ingrese el nombre de la tarea:')
-    let tarea = {nombre:nombre, completada:true}
+    let tarea = {nombre:nombre, completada:false}
     tareas.push(tarea)
     mostrarElementos()
 }
-const borrarTarea = (tarea)=>{
-    let tareaObj = tareas.find(e=>e.nombre=tarea)
-    console.log(tareaObj)
-    tareas.pop(tareaObj)
+const borrarTarea = (nombre)=>{
+    tareas = tareas.filter(t => t.nombre !== nombre)
     mostrarElementos()
 }
 
 const mostrarElementos = () => {
-    let html = ""
+    let tabla_completado = ""
+    let tabla_incompleto = ""
     tareas.forEach( (tarea) => {
-        html += `<tr><td>${tarea.nombre}</td>
-        <td><button onclick="borrarTarea('${tarea.nombre}')">borrar</button>
-        </td></tr>`;
+        if (tarea.completada == false){
+            tabla_incompleto += `<tr><td>${tarea.nombre}</td>
+            <td><button onclick="marcarCompletadas('${tarea.nombre}')">Marcar completada</button></td>
+            <td><button onclick="borrarTarea('${tarea.nombre}')">borrar</button></td>
+            </tr>`;
+        }else{
+            tabla_completado += `<tr><td>${tarea.nombre}</td>
+            <td><button onclick="borrarTarea('${tarea.nombre}')">borrar</button></td>
+            </tr>`;
+        }
     });
-    document.getElementById("tareas_activas").innerHTML = html;
+    document.getElementById("tabla_completado").innerHTML = tabla_completado;
+    document.getElementById("tabla_incompleto").innerHTML = tabla_incompleto;
 }
-// Llamamos a la función para mostrar los elementos al cargar la página
+
 mostrarElementos();
