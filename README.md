@@ -1,5 +1,5 @@
 # Todo-list-js
-A basic to-do list using pure javascript, html and bootstrap 5. Created tasks are saved in session storage.
+A basic to-do list using pure javascript, html and bootstrap 5. Created tasks are saved in local storage.
 
 Requirements (in spanish):
 * El usuario debe poder agregar nuevas tareas a la lista.
